@@ -1,8 +1,35 @@
-**AlexNet的里程碑贡献**
+# SpeedPaper/BaseLine/Alexnet
 
-[原文链接](https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
-[翻译链接](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/Alexnet/paper/AlexNet%E7%BF%BB%E8%AF%91.pdf)
+## 简介
 
+欢迎来到SpeedPaper的BaseLine/Alexnet分支！
+
+本项目旨在通过提供原论文的中文翻译以及相应的PyTorch代码复现，简化对复杂研究论文的理解。
+
+- **标题**: ImageNet Classification with Deep Convolutional Neural Networks
+- [原文链接](https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
+- [翻译链接](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/Alexnet/paper/AlexNet%E7%BF%BB%E8%AF%91.pdf)
+- **作者**: Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton
+- **发表日期**: 2012
+- **主要内容**: 本文介绍了Alexnet架构，它通过使用深度卷积神经网络(CNN)显著提高了图像分类的准确性。该网络采用了ReLU激活函数、Dropout正则化以及数据增强等技术，这些技术后来成为了深度学习领域的标准实践。
+
+## PyTorch代码复现
+
+我们使用PyTorch框架复现了Alexnet架构。包含了网络结构的定义、训练过程以及评估方法。我们尽力保持代码的简洁性和可读性，以便用户可以轻松地理解和修改。
+
+## 如何使用
+
+1. **安装依赖**: 确保您的环境中安装了PyTorch。可以通过[PyTorch官网](https://pytorch.org/get-started/locally/)获取安装指南。
+2. **下载数据**: 为了训练和评估模型，您需要下载[数据集xxxxx]()。放入与Alexnet同级目录中。
+3. **代码介绍**:
+
+   1.[train_alexnet.py](train_alexnet.py)为模型训练文件
+
+   2.[alexnet_inference.py](alexnet_inference.py)为模型推理文件
+
+   3.[alexnet_visualizaton.py](alexnet_visualizaton.py)为模型可视化文件
+
+## AlexNet的里程碑贡献
 1. **创新的网络结构**：
    - 详细描述了AlexNet的8层网络结构，包括5个卷积层和3个全连接层，以及每层的具体配置，如卷积核大小、步长、激活函数等。
    - 强调了局部响应归一化（LRN）的使用，以及它如何通过模拟生物神经元的侧抑制机制来提高网络的泛化能力。
@@ -31,5 +58,3 @@
 
 - 讨论了AlexNet在2012年ILSVRC竞赛中取得的胜利，以及这一成就如何激发了深度学习在图像识别和计算机视觉领域的研究热潮。
 - 强调了AlexNet之后，深度学习技术的快速发展，包括网络结构的创新、训练技巧的改进以及在多个领域的成功应用。
-
-通过这些补充，您的总结将更加全面和详细，能够为听众提供对AlexNet论文及其影响的深入理解。
