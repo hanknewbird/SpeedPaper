@@ -22,12 +22,29 @@ SpeedPaper 是一个旨在帮助深度学习初学者和爱好者更容易理解
 | 论文提出时间 | 论文名称                              | 历史地位或特点                | 已完成 |
 |--------|-----------------------------------|------------------------|-----|
 | 2012年  | AlexNet                           | 深度学习热潮的奠基作             | ✅   |
-| 2014年  | VGG                               | 使用3x3卷积构造更深的网络         |     |
-| 2014年  | GoogLeNet v1 (Inception v1)       | 使用并行架构构造更宽的网络          |     |
-| 2015年  | GoogLeNet v2 (BatchNormalization) | 规范化层的输入，改善训练过程         |     |
-| 2015年  | GoogLeNet v3 (Inception v3)       | 进一步优化的Inception模块，提升性能 |     |
-| 2015年  | ResNet (Residual Network)         | 构建深层网络都要有的残差连接         |     |
-| 2016年  | GoogLeNet v4                      | 继续优化的GoogLeNet版本       |     |
-| 2016年  | ResNeXt                           | 分组卷积，提高性能和扩展性          |     |
-| 2017年  | DenseNet                          | 特征重用，显著提高效率和性能         |     |
-| 2017年  | SENet                             | 通道间依赖关系的建模，提升准确性和鲁棒性   |     |
+| 2014年  | VGG                               | 使用3x3卷积构造更深的网络         | ❌   |
+| 2014年  | GoogLeNet v1 (Inception v1)       | 使用并行架构构造更宽的网络          | ❌   |
+| 2015年  | GoogLeNet v2 (BatchNormalization) | 规范化层的输入，改善训练过程         | ❌   |
+| 2015年  | GoogLeNet v3 (Inception v3)       | 进一步优化的Inception模块，提升性能 | ❌   |
+| 2015年  | ResNet                            | 构建深层网络都要有的残差连接         | ❌   |
+| 2016年  | GoogLeNet v4                      | 继续优化的GoogLeNet版本       | ❌   |
+| 2016年  | ResNeXt                           | 分组卷积，提高性能和扩展性          | ❌   |
+| 2017年  | DenseNet                          | 特征重用，显著提高效率和性能         | ❌   |
+| 2017年  | SENet                             | 通道间依赖关系的建模，提升准确性和鲁棒性   | ❌   |
+
+# Segmentation
+
+| 论文提出时间 | 论文名称                                            | 历史地位或特点           | 已完成 |
+|--------|-------------------------------------------------|-------------------|-----|
+| 2012年  | FCN (Fully Convolutional Networks)              | 全卷积网络，用于图像分割任务    | ❌   |
+| 2015年  | Unet                                            | 用于医学图像分割的U-Net变体  | ❌   |
+| 2015年  | SegNet                                          | 基于SegNet的深度卷积生成网络 | ❌   |
+| 2016年  | DeepLab                                         | 深度学习在图像分割领域的里程碑   | ❌   |
+| 2017年  | GCN (Graph Convolutional Networks)              | 图卷积网络的开创性工作       | ❌   |
+| 2018年  | DFN (Deep Feature Network)                      | 用于图像去噪的深度特征网络     | ❌   |
+| 2018年  | ENet (Efficient Network)                        | 高效的网络结构，用于图像分割    | ❌   |
+| 2019年  | BiSeNet (Bilateral Segmentation Network)        | 双边网络结构，用于图像分割     | ❌   |
+| 2019年  | DFANET (Dual Fusion Aggregation Network)        | 用于图像分割的双融合聚合网络    | ❌   |
+| 2020年  | RedNet (Rethinking Dilated Convolution)         | 重新思考空洞卷积的网络结构     | ❌   |
+| 2020年  | RDFNet (Relation-Aware Dynamic Feature Network) | 关系感知动态特征网络，用于图像分割 | ❌   |
+
