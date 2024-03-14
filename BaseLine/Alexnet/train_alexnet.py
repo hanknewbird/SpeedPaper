@@ -46,19 +46,20 @@ def get_model(path_state_dict, vis_model=False):
 
 if __name__ == "__main__":
 
-    # 参数配置  如果缺少数据集，请阅读相关README.md文件获取下载地址
+    # 参数配置  如果缺少数据集或预训练文件，请阅读相关readme获取下载地址
+    # 数据集："https://github.com/hanknewbird/SpeedPaper/tree/main/BaseLine/Data"
+    # 预训练文件："https://github.com/hanknewbird/SpeedPaper/tree/main/BaseLine/ModelFile"
     data_dir = os.path.join(BASE_DIR, "..", "Data", "CatDog", "train")            # 训练集路径
     path_state_dict = os.path.join(BASE_DIR, "..", "ModelFile", "alexnet-owt-4df8aa71.pth")  # 预训练模型参数路径
 
-    num_classes = 2      # 定义类别
-    MAX_EPOCH = 3        # 跑多少轮
-    BATCH_SIZE = 128     # 每次载入多少图片
-    LR = 0.001           # 学习率
-    log_interval = 1     # 多少次打印一次log
-    val_interval = 1     # 多少次验证一次
-    classes = 2          # 类别为2
-    start_epoch = -1     # 开始的epoch(断点训练时有用)
-    lr_decay_step = 1    # 学习率衰减步长
+    num_classes = 2    # 定义类别
+    MAX_EPOCH = 3      # 跑多少轮
+    BATCH_SIZE = 32    # 每次载入多少图片
+    LR = 0.001         # 学习率
+    log_interval = 1   # 多少次打印一次log
+    val_interval = 1   # 多少次验证一次
+    start_epoch = -1   # 开始的epoch(断点训练时有用)
+    lr_decay_step = 1  # 学习率衰减步长
 
     # ============================ step 1/5 数据 ============================
 
@@ -76,7 +77,7 @@ if __name__ == "__main__":
 
     normalizes = transforms.Normalize(norm_mean, norm_std)
     valid_transform = transforms.Compose([
-        transforms.Resize((256, 256)),                 # 裁剪为(256,256)
+        transforms.Resize((256, 256)),                     # 裁剪为(256,256)
         transforms.TenCrop(224, vertical_flip=False),  # 取10份(垂直翻转)
         # 通过ToTensor和normalizes处理后将10张图片链接起来
         transforms.Lambda(lambda crops: torch.stack([normalizes(transforms.ToTensor()(crop)) for crop in crops])),
@@ -92,7 +93,7 @@ if __name__ == "__main__":
 
     # ============================ step 2/5 模型 ============================
 
-    alexnet_model = get_model(path_state_dict, False)                          # 获取预训练模型,不打印模型结构
+    alexnet_model = get_model(path_state_dict, False)                 # 获取预训练模型,不打印模型结构
     num_ftrs = alexnet_model.classifier._modules["6"].in_features              # 得到最后全连接层的输入维度
     alexnet_model.classifier._modules["6"] = nn.Linear(num_ftrs, num_classes)  # 修改模型最后全连接层输出维度为2
     alexnet_model.to(device)                                                   # 推至运算设备上
@@ -109,7 +110,7 @@ if __name__ == "__main__":
     if flag:
         fc_params_id = list(map(id, alexnet_model.classifier.parameters()))                     # 返回的是parameters的内存地址
         base_params = filter(lambda p: id(p) not in fc_params_id, alexnet_model.parameters())   # 过滤掉fc_params_id中的参数
-        optimizer = optim.SGD([                                                                 # 使用随机梯度下降（SGD）优化器
+        optimizer = optim.SGD([                                                          # 使用随机梯度下降（SGD）优化器
             {'params': base_params, 'lr': LR * 0.1},                                            # 基础卷积参数
             {'params': alexnet_model.classifier.parameters(), 'lr': LR}], momentum=0.9)         # 最后一层的全连接层参数
     else:

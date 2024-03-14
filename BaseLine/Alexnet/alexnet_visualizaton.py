@@ -21,11 +21,11 @@ if __name__ == "__main__":
 
     log_dir = os.path.join(BASE_DIR, "", "results")  # 输出路径
     # ----------------------------------- 卷积核可视化 -----------------------------------
-    writer = SummaryWriter(log_dir=log_dir, filename_suffix="_kernel")            # 创建一个Summary文件,并定义后缀
+    writer = SummaryWriter(log_dir=log_dir, filename_suffix="_kernel")                 # 创建一个Summary文件,并定义后缀
     path_state_dict = os.path.join(BASE_DIR, "ModelFile", "alexnet-owt-4df8aa71.pth")  # 预训练模型路径
-    alexnet = AlexNet()                                                           # 定义模型
-    pretrained_state_dict = torch.load(path_state_dict)                           # 载入预训练模型
-    alexnet.load_state_dict(pretrained_state_dict)                                # 将模型载入预训练模型参数
+    alexnet = AlexNet()                                                                # 定义模型
+    pretrained_state_dict = torch.load(path_state_dict)                                # 载入预训练模型
+    alexnet.load_state_dict(pretrained_state_dict)                                     # 将模型载入预训练模型参数
 
     kernel_num = -1  # 初始化卷积层数量为-1
     vis_max = 1      # 最大卷积层数量
@@ -44,9 +44,9 @@ if __name__ == "__main__":
         for o_idx in range(c_out):
             kernel_idx = kernels[o_idx, :, :, :].unsqueeze(1)                                       # 获得(3, h, w), 但是make_grid需要BCHW，这里拓展C维度变为（3，1，h,w）
             kernel_grid = vutils.make_grid(kernel_idx, normalize=True, scale_each=True, nrow=c_in)  # 将卷积核保存为grid格式
-            writer.add_image(f'{kernel_num}_通道中分离的卷积层', kernel_grid, global_step=o_idx)       # 写入磁盘
+            writer.add_image(f'{kernel_num}_通道中分离的卷积层', kernel_grid, global_step=o_idx)    # 写入磁盘
 
-        kernel_all = kernels.view(-1, 3, k_h, k_w)  # 3, h, w
+        kernel_all = kernels.view(-1, 3, k_h, k_w)                                    # 3, h, w
         kernel_grid = vutils.make_grid(kernel_all, normalize=True, scale_each=True, nrow=8)  # c, h, w
         writer.add_image(f'{kernel_num}_所有', kernel_grid, global_step=620)
 

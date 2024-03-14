@@ -7,15 +7,36 @@
 import json
 import os
 import time
-
 import torch
 import torchvision.transforms as transforms
 from PIL import Image
 import matplotlib.pyplot as plt
-from tools.common_tools import get_vgg16
+from tools.model_vgg16 import VGG16
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+def get_vgg16(path_state_dict, device, vis_model=False):
+    """
+    创建模型，加载参数
+    :param path_state_dict: 预训练模型
+    :param device: 运算设备
+    :param vis_model: 是否打印模型结构
+    :return: 预训练模型
+    """
+    model = VGG16()  # 创建模型结构
+    pretrained_state_dict = torch.load(path_state_dict)  # 读取预训练模型
+    model.load_state_dict(pretrained_state_dict)  # 将预训练模型载入模型
+
+    model.eval()  # 开启验证模式
+
+    if vis_model:  # 是否打印模型结构
+        from torchsummary import summary
+        summary(model, input_size=(3, 224, 224), device="cpu")
+
+    model.to(device)  # 将模型推至运算设备
+    return model
 
 
 def img_transform(img_rgb, transform=None):
