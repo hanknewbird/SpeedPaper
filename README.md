@@ -34,17 +34,17 @@ SpeedPaper 是一个旨在帮助深度学习初学者和爱好者更容易理解
 
 # Segmentation
 
-| 论文提出时间 | 论文名称                                            | 历史地位或特点           | 已完成 |
-|--------|-------------------------------------------------|-------------------|-----|
-| 2012年  | FCN (Fully Convolutional Networks)              | 全卷积网络，用于图像分割任务    | ❌   |
-| 2015年  | Unet                                            | 用于医学图像分割的U-Net变体  | ❌   |
-| 2015年  | SegNet                                          | 基于SegNet的深度卷积生成网络 | ❌   |
-| 2016年  | DeepLab                                         | 深度学习在图像分割领域的里程碑   | ❌   |
-| 2017年  | GCN (Graph Convolutional Networks)              | 图卷积网络的开创性工作       | ❌   |
-| 2018年  | DFN (Deep Feature Network)                      | 用于图像去噪的深度特征网络     | ❌   |
-| 2018年  | ENet (Efficient Network)                        | 高效的网络结构，用于图像分割    | ❌   |
-| 2019年  | BiSeNet (Bilateral Segmentation Network)        | 双边网络结构，用于图像分割     | ❌   |
-| 2019年  | DFANET (Dual Fusion Aggregation Network)        | 用于图像分割的双融合聚合网络    | ❌   |
-| 2020年  | RedNet (Rethinking Dilated Convolution)         | 重新思考空洞卷积的网络结构     | ❌   |
-| 2020年  | RDFNet (Relation-Aware Dynamic Feature Network) | 关系感知动态特征网络，用于图像分割 | ❌   |
+| 论文提出时间 | 论文名称    | 历史地位或特点           | 已完成 |
+|--------|---------|-------------------|-----|
+| 2012年  | FCN     | 全卷积网络，用于图像分割任务    | ❌   |
+| 2015年  | Unet    | 用于医学图像分割的U-Net变体  | ❌   |
+| 2015年  | SegNet  | 基于SegNet的深度卷积生成网络 | ❌   |
+| 2016年  | DeepLab | 深度学习在图像分割领域的里程碑   | ❌   |
+| 2017年  | GCN     | 图卷积网络的开创性工作       | ❌   |
+| 2018年  | DFN     | 用于图像去噪的深度特征网络     | ❌   |
+| 2018年  | ENet    | 高效的网络结构，用于图像分割    | ❌   |
+| 2019年  | BiSeNet | 双边网络结构，用于图像分割     | ❌   |
+| 2019年  | DFANET  | 用于图像分割的双融合聚合网络    | ❌   |
+| 2020年  | RedNet  | 重新思考空洞卷积的网络结构     | ❌   |
+| 2020年  | RDFNet  | 关系感知动态特征网络，用于图像分割 | ❌   |
 

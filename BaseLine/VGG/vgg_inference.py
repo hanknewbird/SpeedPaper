@@ -1,39 +1,29 @@
 # -*- coding: utf-8 -*-
 """
-AlexNet的推理
-注意事项：
-1. 弃用LRN--因为VGG指出LRN并没有作用
-2. Overlapping Pooling用AdaptiveAvgPool2d代替
-3. 卷积核数量有所改变(因为需要使用pytorch官方提供的预训练模型)
+# @file name  : vgg_inference.py
+# @brief      : inference demo
 """
 
 import json
 import os
 import time
 
-import matplotlib
 import torch
 import torchvision.transforms as transforms
 from PIL import Image
-from tools.model_alexnet import AlexNet
-matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
+from tools.common_tools import get_vgg16
 
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))                  # 设置base路径
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")  # 判断硬件环境
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def img_transform(img_rgb, transform=None):
     """
     将数据转换为模型读取的形式
-
-    Args:
-        img_rgb: 一张RGB图像
-        transform: 自定义的torchvision.transform顺序
-
-    Returns:
-        预处理后的tensor格式图像
+    :param img_rgb: PIL Image
+    :param transform: torchvision.transform
+    :return: tensor
     """
 
     if transform is None:
@@ -41,51 +31,6 @@ def img_transform(img_rgb, transform=None):
 
     img_t = transform(img_rgb)
     return img_t
-
-
-def load_class_names(p_clsnames, p_clsnames_cn):
-    """
-    加载标签名
-
-    Args:
-        p_clsnames: 英文标签路径
-        p_clsnames_cn: 中文标签路径
-
-    Returns:
-        英文标签，中文标签
-    """
-
-    with open(p_clsnames, "r") as f:
-        class_names = json.load(f)      # 载入json格式的name
-    with open(p_clsnames_cn, encoding='UTF-8') as f:
-        class_names_cn = f.readlines()  # 载入中文
-    return class_names, class_names_cn
-
-
-def get_model(path_state_dict, vis_model=False):
-    """
-    载入模型
-
-    Args:
-        path_state_dict: 预训练模型路径
-        vis_model: 是否打印模型结构
-
-    Returns:
-        预训练模型
-    """
-
-    model = AlexNet()                                    # 实例化模型
-    pretrained_state_dict = torch.load(path_state_dict)  # 载入预训练模型参数
-    model.load_state_dict(pretrained_state_dict)         # 将参数载入模型
-    model.eval()                                         # 设置为预测模式
-
-    if vis_model:
-        from torchsummary import summary
-        # 打印网络结构图
-        summary(model, input_size=(3, 224, 224), device="cpu")
-
-    model.to(device)  # 将模型推至到cpu或gpu上
-    return model
 
 
 def process_img(path_img):
@@ -130,14 +75,32 @@ def process_img(path_img):
     return img_tensor, img_rgb
 
 
+def load_class_names(p_clsnames, p_clsnames_cn):
+    """
+    加载标签名
+
+    Args:
+        p_clsnames: 英文标签路径
+        p_clsnames_cn: 中文标签路径
+
+    Returns:
+        英文标签，中文标签
+    """
+
+    with open(p_clsnames, "r") as f:
+        class_names = json.load(f)      # 载入json格式的name
+    with open(p_clsnames_cn, encoding='UTF-8') as f:
+        class_names_cn = f.readlines()  # 载入中文
+    return class_names, class_names_cn
+
+
 if __name__ == "__main__":
 
     # 预训练文件
-    path_state_dict = os.path.join(BASE_DIR, "..", "ModelFile", "alexnet-owt-4df8aa71.pth")
+    path_state_dict = os.path.join(BASE_DIR, "..", "ModelFile", "vgg16-397923af.pth")
 
     # 需要预测的图片
-    path_img = os.path.join(BASE_DIR, "..", "Data", "CatDog", "tiger cat.jpg")
-    # path_img = os.path.join(BASE_DIR, "..", "Data", "CatDog", "Golden Retriever from baidu.jpg")
+    path_img = os.path.join(BASE_DIR, "..", "Data", "sheep.jpg")
 
     # index对应的names
     path_classnames = os.path.join(BASE_DIR, "..", "Data", "imagenet1000.json")
@@ -152,20 +115,20 @@ if __name__ == "__main__":
     img_tensor, img_rgb = process_img(path_img)
 
     # 2/5 加载模型，载入预训练模型，并打印模型结构
-    alexnet_model = get_model(path_state_dict, True)
+    vgg_model = get_vgg16(path_state_dict, device, True)
 
     # 3/5 模型推理
-    with torch.no_grad():                    # 不需要更新梯度
-        time_tic = time.time()               # 记录开始预测时间
-        outputs = alexnet_model(img_tensor)  # 将传入tensor格式的图像预测成(1,1000)格式的输出结果
-        time_toc = time.time()               # 记录结束预测时间
+    with torch.no_grad():
+        time_tic = time.time()
+        outputs = vgg_model(img_tensor)
+        time_toc = time.time()
 
     # 4/5 获取类别
-    _, pred_int = torch.max(outputs.data, 1)          # 获取top1的值与相应索引
-    _, top5_idx = torch.topk(outputs.data, 5, dim=1)  # 获取top5的值与相应索引值
+    _, pred_int = torch.max(outputs.data, 1)
+    _, top5_idx = torch.topk(outputs.data, 5, dim=1)
 
-    pred_idx = int(pred_int.cpu().numpy()[0])                # 将tensor转化为int格式
-    pred_str, pred_cn = cls_n[pred_idx], cls_n_cn[pred_idx]  # 根据索引获取对应的name与中文名称
+    pred_idx = int(pred_int.cpu().numpy())
+    pred_str, pred_cn = cls_n[pred_idx], cls_n_cn[pred_idx]
 
     # 打印相关信息
     print(f"img: {os.path.basename(path_img)} is: {pred_str}\n{pred_cn}")
@@ -179,7 +142,7 @@ if __name__ == "__main__":
 
     # 循环将预测结果展示至画板上
     for idx in range(len(top5_num)):
-        plt.text(5, 15 + idx * 30, f"top {idx + 1}:{text_str[idx]}", bbox=dict(fc='yellow'))
+        plt.text(5, 15 + idx * 140, f"top {idx + 1}:{text_str[idx]}", bbox=dict(fc='yellow'))
 
     # 将图像展示出来
     plt.show()
