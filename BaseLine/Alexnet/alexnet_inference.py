@@ -133,17 +133,17 @@ def process_img(path_img):
 if __name__ == "__main__":
 
     # 预训练文件
-    path_state_dict = os.path.join(BASE_DIR, "file", "alexnet-owt-4df8aa71.pth")
+    path_state_dict = os.path.join(BASE_DIR, "..", "ModelFile", "alexnet-owt-4df8aa71.pth")
 
     # 需要预测的图片
-    path_img = os.path.join(BASE_DIR, "..", "Data", "tiger cat.jpg")
-    # path_img = os.path.join(BASE_DIR, "..", "Data", "Golden Retriever from baidu.jpg")
+    path_img = os.path.join(BASE_DIR, "..", "Data", "CatDog", "tiger cat.jpg")
+    # path_img = os.path.join(BASE_DIR, "..", "Data", "CatDog", "Golden Retriever from baidu.jpg")
 
     # index对应的names
-    path_classnames = os.path.join(BASE_DIR, "..", "Data", "imagenet1000.json")
+    path_classnames = os.path.join(BASE_DIR, "..", "Data", "CatDog", "imagenet1000.json")
 
     # index对应的中文
-    path_classnames_cn = os.path.join(BASE_DIR, "..", "Data", "imagenet_classnames.txt")
+    path_classnames_cn = os.path.join(BASE_DIR, "..", "Data", "CatDog", "imagenet_classnames.txt")
 
     # 载入class names
     cls_n, cls_n_cn = load_class_names(path_classnames, path_classnames_cn)

@@ -22,7 +22,7 @@ if __name__ == "__main__":
     log_dir = os.path.join(BASE_DIR, "", "results")  # 输出路径
     # ----------------------------------- 卷积核可视化 -----------------------------------
     writer = SummaryWriter(log_dir=log_dir, filename_suffix="_kernel")            # 创建一个Summary文件,并定义后缀
-    path_state_dict = os.path.join(BASE_DIR, "file", "alexnet-owt-4df8aa71.pth")  # 预训练模型路径
+    path_state_dict = os.path.join(BASE_DIR, "ModelFile", "alexnet-owt-4df8aa71.pth")  # 预训练模型路径
     alexnet = AlexNet()                                                           # 定义模型
     pretrained_state_dict = torch.load(path_state_dict)                           # 载入预训练模型
     alexnet.load_state_dict(pretrained_state_dict)                                # 将模型载入预训练模型参数

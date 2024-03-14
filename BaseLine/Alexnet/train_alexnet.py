@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
     # 参数配置  如果缺少数据集，请阅读相关README.md文件获取下载地址
     data_dir = os.path.join(BASE_DIR, "..", "Data", "CatDog", "train")            # 训练集路径
-    path_state_dict = os.path.join(BASE_DIR, "file", "alexnet-owt-4df8aa71.pth")  # 预训练模型参数路径
+    path_state_dict = os.path.join(BASE_DIR, "..", "ModelFile", "alexnet-owt-4df8aa71.pth")  # 预训练模型参数路径
 
     num_classes = 2      # 定义类别
     MAX_EPOCH = 3        # 跑多少轮
