@@ -11,8 +11,6 @@
 - [翻译链接](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/Alexnet/paper/AlexNet%E7%BF%BB%E8%AF%91.pdf)
 - **作者**: Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton
 - **发表日期**: 2012
-- **主要内容**: 本文介绍了Alexnet架构，它通过使用深度卷积神经网络(CNN)显著提高了图像分类的准确性。该网络采用了ReLU激活函数、Dropout正则化以及数据增强等技术，这些技术后来成为了深度学习领域的标准实践。
-
 ## PyTorch代码复现
 
 我们使用PyTorch框架复现了Alexnet架构。包含了网络结构的定义、训练过程以及评估方法。我们尽力保持代码的简洁性和可读性，以便用户可以轻松地理解和修改。
@@ -28,6 +26,18 @@
    2.[alexnet_inference.py](alexnet_inference.py)为模型推理文件
 
    3.[alexnet_visualizaton.py](alexnet_visualizaton.py)为模型可视化文件
+
+## 主要内容:
+- 本文介绍了Alexnet架构，它通过使用深度卷积神经网络(CNN)显著提高了图像分类的准确性。
+- 该网络采用了ReLU激活函数、Dropout正则化以及数据增强等技术，这些技术后来成为了深度学习领域的标准实践。
+
+## 历史地位
+- AlexNet是深度学习和卷积神经网络（CNN）发展史上的一个里程碑。
+- 它在2012年ImageNet大规模视觉识别挑战赛（ILSVRC）中取得了突破性的成绩，大幅超越了以往的最佳性能。
+- 这一成就不仅证明了深度学习在图像识别任务中的有效性，还激发了后续对深度神经网络的研究和应用。
+- AlexNet的成功标志着深度学习时代的到来，对计算机视觉、语音识别、自然语言处理等多个领域产生了深远影响。
+
+
 
 ## AlexNet的里程碑贡献
 1. **创新的网络结构**：
