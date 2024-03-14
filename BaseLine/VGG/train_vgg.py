@@ -55,13 +55,13 @@ if __name__ == "__main__":
     data_dir = os.path.join(BASE_DIR, "..", "Data", "CatDog", "train")  # 基础路径
     path_state_dict = os.path.join(BASE_DIR, "..", "ModelFile", "vgg16-397923af.pth")  # 以VGG16的预训练模型参数路径
 
-    num_classes = 2  # 定义类别
-    MAX_EPOCH = 3  # 跑多少轮
-    BATCH_SIZE = 32  # 每次载入多少图片
-    LR = 0.001  # 学习率
-    log_interval = 1  # 多少次打印一次log
-    val_interval = 1  # 多少次验证一次
-    start_epoch = -1  # 开始的epoch(断点训练时有用)
+    num_classes = 2    # 定义类别
+    MAX_EPOCH = 3      # 跑多少轮
+    BATCH_SIZE = 32    # 每次载入多少图片
+    LR = 0.001         # 学习率
+    log_interval = 1   # 多少次打印一次log
+    val_interval = 1   # 多少次验证一次
+    start_epoch = -1   # 开始的epoch(断点训练时有用)
     lr_decay_step = 1  # 学习率衰减步长
 
     # ============================ step 1/5 数据 ============================
@@ -159,8 +159,11 @@ if __name__ == "__main__":
             train_curve.append(loss.item())  # 将本次的loss值加入到训练曲线列表中
             if (i + 1) % log_interval == 0:  # 是否打印日志
                 loss_mean = loss_mean / log_interval  # 计算loss平均值
-                print(
-                    f"Training:Epoch[{epoch:0>3}/{MAX_EPOCH:0>3}] Iteration[{i + 1:0>3}/{len(train_loader):0>3}] Loss: {loss_mean:.4f} Acc:{correct / total:.2%} lr:{scheduler.get_last_lr()}")
+                print(f"Training:Epoch[{epoch:0>3}/{MAX_EPOCH:0>3}] "
+                      f"Iteration[{i + 1:0>3}/{len(train_loader):0>3}] "
+                      f"Loss: {loss_mean:.4f} "
+                      f"Acc:{correct / total:.2%} "
+                      f"lr:{scheduler.get_last_lr()}")
                 loss_mean = 0.
 
         scheduler.step()  # 更新学习率
@@ -193,7 +196,10 @@ if __name__ == "__main__":
                 loss_val_mean = loss_val / len(valid_loader)  # 计算验证loss平均值
                 valid_curve.append(loss_val_mean)  # 加入验证曲线列表
                 print(
-                    f"Valid:\t Epoch[{epoch:0>3}/{MAX_EPOCH:0>3}] Iteration[{j + 1:0>3}/{len(valid_loader):0>3}] Loss: {loss_val_mean:.4f} Acc:{correct_val / total_val:.2%}")
+                    f"Valid:\t Epoch[{epoch:0>3}/{MAX_EPOCH:0>3}] "
+                    f"Iteration[{j + 1:0>3}/{len(valid_loader):0>3}] "
+                    f"Loss: {loss_val_mean:.4f} "
+                    f"Acc:{correct_val / total_val:.2%}")
 
             vgg16_model.train()  # 将模型转化为训练模式
 
