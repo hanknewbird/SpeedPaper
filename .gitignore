@@ -6,9 +6,9 @@
 /BaseLine/GoogLeNetV2/paper/result.zip
 /BaseLine/ResNet/paper/result.zip
 /BaseLine/GoogLeNetV3/paper/result.zip
+/BaseLine/GoogLeNetV4/paper/result.zip
 /BaseLine/Data/
 /BaseLine/ModelFile/
-/BaseLine/G_GoogLeNet_v4/
 /BaseLine/H_ResNeXt/
 /BaseLine/I_DenseNet/
 /BaseLine/J_SENet/

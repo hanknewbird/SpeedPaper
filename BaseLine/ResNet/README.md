@@ -7,7 +7,7 @@
 - **标题**: Deep Residual Learning for Image Recognition
 - [原文链接](https://arxiv.org/pdf/1512.03385.pdf)  [翻译链接](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/ResNet/paper/ResNet%E7%BF%BB%E8%AF%91.pdf)
 - **作者**: Kaiming He，Xiangyu Zhang，Shaoqing Ren，Jian Sun
-- **发表日期**: 2015
+- **发表日期**: 2016
 
 # PyTorch代码复现
 
@@ -21,19 +21,23 @@
 
 3. **代码介绍**:
 
-   1.[parse_cifar10_to_png.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/ResNet/parse_cifar10_to_png.py)处理CIFAR-10数据集。
+   1.[parse_cifar10_to_png.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/ResNet/parse_cifar10_to_png.py)
+   处理CIFAR-10数据集。
 
    2.[train_resnet.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/ResNet/train_resnet.py)为模型训练文件。
 
-   3.[resnet_inference.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/ResNet/resnet_inference.py)为模型推理文件。
+   3.[resnet_inference.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/ResNet/resnet_inference.py)
+   为模型推理文件。
 
 ---
 
-在深度学习领域，一篇具有里程碑意义的论文如同璀璨的星辰，照亮了图像识别的未来。这就是由Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun共同撰写的《Deep Residual Learning for Image Recognition》，一篇源自微软研究院的智慧结晶。
+在深度学习领域，一篇具有里程碑意义的论文如同璀璨的星辰，照亮了图像识别的未来。这就是由Kaiming He、Xiangyu Zhang、Shaoqing
+Ren和Jian Sun共同撰写的《Deep Residual Learning for Image Recognition》，一篇源自微软研究院的智慧结晶。
 
 在这篇论文中，作者们以诗意的笔触，描绘了深度神经网络训练的艰难征途。他们以哲人般的洞察力，发现了网络深度增加时出现的梯度消失与爆炸之谜，以及更深网络带来的准确性退化现象。为了克服这些障碍，他们提出了一种名为“残差学习”的框架，它如同一位巧妙的画家，以留白的方式，让网络层学习输入的残差映射，而非直接拟合目标映射。
 
-在实现这一理念的过程中，作者们引入了“快捷连接”（shortcut connections），它们如同乐章中的跳跃音符，巧妙地跳过若干层，以恒等映射的形式，将前一层的输出与后一层的输出相加，从而简化了残差映射的学习过程。
+在实现这一理念的过程中，作者们引入了“快捷连接”（shortcut
+connections），它们如同乐章中的跳跃音符，巧妙地跳过若干层，以恒等映射的形式，将前一层的输出与后一层的输出相加，从而简化了残差映射的学习过程。
 
 论文中，作者们还细致地构建了多种网络架构，包括受VGG网络启发的平面网络和融入了快捷连接的残差网络。他们如同建筑师一般，精心设计了网络的每一层，确保了在维度增加时的和谐过渡。
 
@@ -46,21 +50,25 @@
 ---
 
 # 研究背景：
+
 在深度学习领域，神经网络的深度被认为是提升性能的关键因素。然而，随着网络层数的增加，训练过程面临着梯度消失或爆炸的挑战，这阻碍了网络深度的进一步提升。此外，当网络深度增加到一定程度时，会出现一种意外的现象：尽管网络表达能力增强，但其性能却开始退化，即准确率不再提升，甚至下降。这一现象被称为“退化问题”。为了解决这些问题，作者们提出了一种新的网络结构——残差网络（ResNet）。
 
 # 相关研究：
 
-| 模型       | 时间 | Top-5 错误率 |
-|------------|------|--------------|
-| AlexNet    | 2012 | 15.3%        |
-| ZFNet      | 2013 | 13.5%        |
-| VGG        | 2014 | 7.3%         |
-| GoogLeNet  | 2014 | 6.6%         |
-| GoogLeNet-V2| 2015 | 4.9%   |
-| ResNet | 2015 | 3.6% |
+| 模型           | 时间   | Top-5 错误率 |
+|--------------|------|-----------|
+| AlexNet      | 2012 | 15.3%     |
+| ZFNet        | 2013 | 13.5%     |
+| VGG          | 2014 | 7.3%      |
+| GoogLeNet    | 2014 | 6.6%      |
+| GoogLeNet-V2 | 2015 | 4.9%      |
+| ResNet       | 2016 | 3.6%      |
 
 # 成果：
-残差网络的核心思想是让网络层学习输入与输出之间的残差，即H(x) - x，而不是直接学习映射H(x)。通过引入快捷连接（shortcut connections），残差网络能够将输入直接传递到后面的层，从而使得深层网络的训练变得更加容易。实验结果表明，残差网络能够显著提高网络的深度，同时避免了退化问题，实现了更高的准确率。在ImageNet数据集上，作者们训练了一个高达152层的残差网络，不仅在深度上远超以往的网络（如VGG网络），而且在准确率上也取得了显著提升，赢得了2015年ILSVRC分类任务的第一名。
+
+残差网络的核心思想是让网络层学习输入与输出之间的残差，即H(x) - x，而不是直接学习映射H(x)。通过引入快捷连接（shortcut
+connections），残差网络能够将输入直接传递到后面的层，从而使得深层网络的训练变得更加容易。实验结果表明，残差网络能够显著提高网络的深度，同时避免了退化问题，实现了更高的准确率。在ImageNet数据集上，作者们训练了一个高达152层的残差网络，不仅在深度上远超以往的网络（如VGG网络），而且在准确率上也取得了显著提升，赢得了2015年ILSVRC分类任务的第一名。
 
 # 意义：
+
 残差网络的提出具有划时代的意义。它不仅解决了深度神经网络训练中的一些根本性问题，还为构建更深、更强大的网络提供了有效的方法。残差网络的设计理念和实现方式对后续的深度学习研究产生了深远的影响，其在图像识别、对象检测、语义分割等多个领域都取得了显著的成果。此外，残差网络也为其他领域的深度学习应用提供了新的视角和工具，推动了整个人工智能领域的发展。

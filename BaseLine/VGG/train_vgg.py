@@ -70,12 +70,12 @@ if __name__ == "__main__":
         transforms.RandomCrop(224),                 # 随机裁剪为(224,224)
         transforms.RandomHorizontalFlip(p=0.5),     # 随机水平翻转
         transforms.ToTensor(),                      # 将图像从[0,255]范围转换到[0,1]范围(H×W×C)的tensor格式
-        transforms.Normalize(norm_mean, norm_std),  # 归一化张量图像。
+        transforms.Normalize(norm_mean, norm_std),  # 归一化张量图像
     ])
 
     normalizes = transforms.Normalize(norm_mean, norm_std)
     valid_transform = transforms.Compose([
-        transforms.Resize((256, 256)),  # 裁剪为(256,256)
+        transforms.Resize((256, 256)),                      # 裁剪为(256,256)
         transforms.TenCrop(224, vertical_flip=False),  # 取10份(垂直翻转)
         # 通过ToTensor和normalizes处理后将10张图片链接起来
         transforms.Lambda(lambda crops: torch.stack([normalizes(transforms.ToTensor()(crop)) for crop in crops])),
@@ -107,12 +107,11 @@ if __name__ == "__main__":
     flag = 0
     # flag = 1
     if flag:
-        fc_params_id = list(map(id, vgg16_model.classifier.parameters()))  # 返回的是parameters的 内存地址
+        fc_params_id = list(map(id, vgg16_model.classifier.parameters()))  # 返回的是parameters的内存地址
         base_params = filter(lambda p: id(p) not in fc_params_id, vgg16_model.parameters())
         optimizer = optim.SGD([  # 对不同层设置不同的优化器
             {'params': base_params, 'lr': LR * 0.1},  # 基础卷积参数
             {'params': vgg16_model.classifier.parameters(), 'lr': LR}], momentum=0.9)  # 最后一层的全连接层参数
-
     else:
         optimizer = optim.SGD(vgg16_model.parameters(), lr=LR, momentum=0.9)  # 选择优化器
 
@@ -202,8 +201,7 @@ if __name__ == "__main__":
     train_y = train_curve  # 训练曲线y坐标列表
 
     train_iters = len(train_loader)  # 每轮共多少iter
-    valid_x = np.arange(1,
-                        len(valid_curve) + 1) * train_iters * val_interval  # 由于valid中记录的是epochloss，需要对记录点进行转换到iterations
+    valid_x = np.arange(1, len(valid_curve) + 1) * train_iters * val_interval  # 由于valid中记录的是epochloss，需要对记录点进行转换到iterations
     valid_y = valid_curve  # 验证曲线y坐标列表
 
     plt.plot(train_x, train_y, label='Train')  # 绘制训练loss曲线

@@ -33,7 +33,7 @@ class NCFMDataSet(Dataset):
 
     def __len__(self):
         if len(self.data_info) == 0:
-            raise Exception("\ndata_dir:{} is a empty dir! Please checkout your path to images!".format(self.data_dir))
+            raise Exception(f"\ndata_dir:{self.data_dir} is a empty dir! Please checkout your path to images!")
         return len(self.data_info)
 
     def _get_img_info(self):

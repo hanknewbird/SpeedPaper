@@ -7,20 +7,23 @@ import torchvision.models as models
 def get_googlenet_v3(path_state_dict, device, vis_model=False):
     """
     创建模型，加载参数
-    :param path_state_dict:
-    :return:
+    :param path_state_dict: 预训练模型
+    :param device: 运算设备
+    :param vis_model: 是否打印模型结构
+    :return: 预训练模型
     """
-    model = models.inception_v3()
+    model = models.inception_v3()  # 创建模型结构
     if path_state_dict:
-        pretrained_state_dict = torch.load(path_state_dict)
-        model.load_state_dict(pretrained_state_dict)
-    model.eval()
+        pretrained_state_dict = torch.load(path_state_dict)  # 读取预训练模型
+        model.load_state_dict(pretrained_state_dict)  # 将预训练模型载入模型
 
-    if vis_model:
+    model.eval()  # 开启验证模式
+
+    if vis_model:  # 是否打印模型结构
         from torchsummary import summary
         summary(model, input_size=(3, 299, 299), device="cpu")
 
-    model.to(device)
+    model.to(device)  # 将模型推至运算设备
     return model
 
 
