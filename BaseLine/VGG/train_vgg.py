@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     num_classes = 2    # 定义类别
     MAX_EPOCH = 3      # 跑多少轮
-    BATCH_SIZE = 32    # 每次载入多少图片
+    BATCH_SIZE = 8     # 每次载入多少图片
     LR = 0.001         # 学习率
     log_interval = 1   # 多少次打印一次log
     val_interval = 1   # 多少次验证一次
@@ -165,9 +165,9 @@ if __name__ == "__main__":
         # 验证模式
         if (epoch + 1) % val_interval == 0:
 
-            correct_val = 0.  # 验证正确数量
-            total_val = 0.  # 总数
-            loss_val = 0.  # loss值
+            correct_val = 0.    # 验证正确数量
+            total_val = 0.      # 总数
+            loss_val = 0.       # loss值
             vgg16_model.eval()  # 模型开启验证模式
 
             with torch.no_grad():  # 模型不需要梯度更新
