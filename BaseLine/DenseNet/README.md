@@ -4,10 +4,10 @@
 
 本项目旨在通过提供原论文的中文翻译以及相应的PyTorch代码复现，简化对复杂研究论文的理解。
 
-- **标题**: 
+- **标题**: Densely Connected Convolutional Networks
 - [原文链接](https://arxiv.org/pdf/1608.06993.pdf)  [翻译链接](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/ResNeXt/paper/ResNeXt%E7%BF%BB%E8%AF%91.pdf)
-- **作者**:  
-- **发表日期**: 2016
+- **作者**:  Gao Huang，Zhuang Liu，Laurens van der Maaten
+- **发表日期**: 2018
 
 # PyTorch代码复现
 

@@ -30,8 +30,8 @@ SpeedPaper 是一个旨在帮助深度学习初学者和爱好者更容易理解
 | 2015年  | GoogLeNet v3 (Inception v3)       | 进一步优化的Inception模块，提升性能 | ✅   |
 | 2016年  | ResNet                            | 构建深层网络都要有的残差连接         | ✅   |
 | 2016年  | GoogLeNet v4 (Inception v4)       | 继续优化的GoogLeNet版本       | ✅   |
-| 2017年  | ResNeXt                           | 分组卷积，提高性能和扩展性          | ❌   |
-| 2017年  | DenseNet                          | 特征重用，显著提高效率和性能         | ❌   |
+| 2016年  | ResNeXt                           | 分组卷积，提高性能和扩展性          | ✅   |
+| 2018年  | DenseNet                          | 特征重用，显著提高效率和性能         | ✅   |
 | 2017年  | SENet                             | 通道间依赖关系的建模，提升准确性和鲁棒性   | ❌   |
 
 # Segmentation
