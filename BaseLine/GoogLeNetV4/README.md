@@ -1,17 +1,17 @@
 # 简介
 
-欢迎来到SpeedPaper的BaseLine/GoogLeNetV3分支！
+欢迎来到SpeedPaper的BaseLine/GoogLeNetV4分支！
 
 本项目旨在通过提供原论文的中文翻译以及相应的PyTorch代码复现，简化对复杂研究论文的理解。
 
-- **标题**: Rethinking the Inception Architecture for Computer Vision
-- [原文链接](https://arxiv.org/pdf/1512.00567.pdf)  [翻译链接](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/GoogLeNetV3/paper/GoogLeNetv3%E7%BF%BB%E8%AF%91.pdf)
-- **作者**: Christian Szegedy,Vincent Vanhoucke,Sergey Ioffe, Jonathon Shlens
+- **标题**: Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning
+- [原文链接](https://arxiv.org/pdf/1602.07261.pdf)  [翻译链接](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/GoogLeNetV4/paper/GoogLeNetv4%E7%BF%BB%E8%AF%91.pdf)
+- **作者**: Christian Szegedy，Sergey IoffeVincent，Vanhoucke
 - **发表日期**: 2016
 
 # PyTorch代码复现
 
-我们使用PyTorch框架复现了ResNet架构。包含了网络结构的定义、训练过程以及评估方法。我们尽力保持代码的简洁性和可读性，以便用户可以轻松地理解和修改。
+我们使用PyTorch框架复现了GoogLeNetV4架构。包含了网络结构的定义、训练过程以及评估方法。我们尽力保持代码的简洁性和可读性，以便用户可以轻松地理解和修改。
 
 ## 如何使用
 
@@ -21,40 +21,31 @@
 
 3. **代码介绍**:
 
-   1.[train_googlenet_v3.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/GoogLeNetV3/train_googlenet_v3.py)为模型训练文件。
+   1.[inception_v4_inference.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/GoogLeNetV4/inception_v4_inference.py)为inception_v4模型训练文件
 
-   2.[googlenet_v3_inference.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/GoogLeNetV3/googlenet_v3_inference.py)为模型推理文件。
+   2.[inception_resnet_v2_inference.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/GoogLeNetV4/inception_resnet_v2_inference.py)为inception_v2结合了ResNet的模型训练文件
 
 ---
 
-在探索计算机视觉的广阔领域中，一篇名为《Rethinking the Inception Architecture for Computer Vision》的论文如同一颗璀璨的星辰，由Christian Szegedy、Vincent Vanhoucke、Sergey Ioffe、Jonathon Shlens和Zbigniew Wojna这五位杰出的研究者共同点亮。他们不仅重新构想了Inception架构，更是在2015年的寒冬中，为深度学习的未来描绘了一幅光明的蓝图。
+在深度学习的宏伟画卷中，卷积神经网络以其在图像识别领域的卓越成就而熠熠生辉。在这篇由Christian Szegedy、Sergey Ioffe、Vincent Vanhoucke和Alex Alemi共同撰写的论文中，我们得以一窥Inception架构与残差连接相结合的奥秘，它们如同两位舞者在数据的海洋中翩翩起舞，共同推动了图像识别技术的进步。
 
-在这篇论文中，作者们巧妙地编织了一系列设计原则，旨在避免网络中的信息瓶颈，平衡宽度与深度，并在网络的每个角落高效地处理更高维度的表示。他们如同精心策划一场盛宴，将大尺寸卷积巧妙地分解为一系列较小的卷积，使得计算的效率得以显著提升。
+文章中，作者们以精湛的技艺和严谨的实验，揭示了残差连接在加速Inception网络训练过程中的关键作用，它们就像是一股清流，为深度学习的训练带来了前所未有的活力。而残差Inception网络，虽然只是略胜一筹，却如同夜空中最亮的星，以微弱的优势超越了传统的Inception网络。
 
-此外，他们引入了辅助分类器的概念，这一创新之举不仅改善了深层网络的收敛性，更在实验中意外地发现了其正则化的作用。如同在一幅画中添加了几笔不经意的阴影，使得整幅作品更加立体生动。
+在这篇论文的篇章中，作者们还巧妙地提出了一系列新的网络架构，它们如同精心雕琢的艺术品，不仅在形式上更加简洁优雅，而且在功能上也大幅提升了性能。通过适当的激活缩放，这些网络如同被赋予了生命，即使在面对宽广的数据海洋时，也能稳定地航行，探索知识的深渊。
 
-标签平滑（Label Smoothing）的提出，更是如同在模型训练的海洋中投下了一颗定心丸，使得模型在面对不确定性时，能够保持一份从容与淡定。
+在实验的舞台上，这些网络架构如同四位杰出的表演者，它们在训练的过程中不断进步，最终在ImageNet分类挑战的测试集上，以3.08%的top-5错误率，共同创造了一个新的里程碑。
 
-在探讨低分辨率输入对网络性能影响的实验中，他们展示了即使在分辨率受限的情况下，通过精心设计的网络，依旧能够捕捉到图像的精髓，这为小型物体的检测提供了新的视角。
+论文的最后，作者们以诗意的语言，总结了他们的发现：Inception-ResNet-v1、Inception-ResNet-v2和Inception-v4这三种新的网络架构，它们如同三座灯塔，照亮了深度学习的未来。特别是残差连接的引入，不仅加速了训练，还为Inception架构注入了新的活力。而Inception-v4，尽管没有残差连接的加持，却也凭借其庞大的模型规模，展现出了与残差Inception网络相媲美的性能。
 
-最终，googlenetv3网络架构在ILSVRC 2012分类挑战验证集上取得了令人瞩目的成绩，以21.2%的top-1错误率和5.6%的top-5错误率，再次证明了在保持计算成本相对稳定的同时，也能实现性能的飞跃。
-
-这篇论文不仅是对Inception架构的一次深刻反思，更是对计算机视觉领域的一次勇敢探索。它如同一首优美的交响乐，将理论与实践、创新与效率完美地融合在一起，为未来的研究者们指明了前进的方向。
+这篇论文，如同一首赞美深度学习进步的诗篇，不仅为研究者们提供了宝贵的知识财富，更为我们描绘了一个更加智能、更加美好的未来图景。
 
 ---
 
 # 研究背景：
-随着深度学习在计算机视觉领域的迅速发展，尤其是自2012年ImageNet竞赛以来，卷积神经网络（CNN）已成为众多视觉任务的核心。2014年起，深度卷积网络开始流行，带来了显著的性能提升。然而，随着模型规模和计算成本的增加，如何在保持计算效率和低参数数量的同时，进一步提升网络性能，成为了研究的重点。在这样的背景下，论文《Rethinking the Inception Architecture for Computer Vision》应运而生，旨在探索如何高效地扩展卷积网络。
+在深度学习领域，卷积神经网络（CNNs）已成为图像识别技术的核心。自2012年ImageNet竞赛以来，随着“AlexNet”等网络的成功，深度学习在计算机视觉任务中的应用迅速扩展。Inception架构作为其中的一个重要里程碑，以其高效的计算成本和优异的性能受到广泛关注。然而，随着网络深度的增加，训练变得更加困难。为此，He等人在2015年引入了残差连接（residual connections），这一创新在ILSVRC挑战中取得了突破性的成绩，引发了对残差连接与Inception架构结合的探索。
 
 # 成果：
-1. 提出了GoogLeNetv3网络架构，该架构在ILSVRC 2012分类挑战验证集上实现了21.2%的top-1错误率和5.6%的top-5错误率，显著优于当时的最先进技术。
-2. 引入了设计原则，包括避免表示瓶颈、在网络中处理更高维度的表示、空间聚合可以在低维嵌入上进行，以及平衡网络的宽度和深度。
-3. 展示了通过因子化卷积和积极的正则化来提高计算效率的方法，包括将大尺寸卷积分解为较小的卷积，以及使用辅助分类器和标签平滑技术。
-4. 证明了即使在较低分辨率的输入下，通过适当的网络设计，也能获得高质量的结果。
+本论文主要研究了Inception架构与残差连接的结合，并提出了Inception-v4和Inception-ResNet两种新的网络架构。通过实验，作者们发现使用残差连接可以显著加快Inception网络的训练速度，并且在某些情况下，残差Inception网络的性能略微超过了没有残差连接的Inception网络。此外，作者们还展示了适当的激活缩放如何稳定非常宽的残差Inception网络的训练。最终，通过集成模型，研究者们在ImageNet分类挑战的测试集上达到了3.08%的top-5错误率，刷新了当时的记录。
 
 # 意义：
-1. 该研究推动了计算机视觉领域的发展，特别是在提高深度学习模型性能和计算效率方面。
-2. GoogLeNetv3架构的成功展示了在资源受限的情况下，如何设计出性能优越的网络，这对于移动视觉和大数据场景等实际应用具有重要意义。
-3. 论文中提出的设计原则和正则化技术为后续的网络设计提供了宝贵的指导，影响了后续一系列网络架构的发展。
-4. 通过实验验证了低分辨率输入下的性能，为小物体检测等特定应用场景提供了新的解决方案。
-5. 论文的研究成果不仅在学术界产生了广泛影响，也为工业界提供了实用的技术参考，促进了计算机视觉技术的广泛应用和进步。
+这项研究的意义在于，它不仅推动了深度学习模型在图像识别任务上的性能极限，还为设计更高效、更易训练的深度神经网络提供了新的思路。残差连接的引入和Inception架构的改进，为后续的研究和应用奠定了基础，特别是在需要处理大量数据和复杂任务时。此外，这些成果也为其他领域的深度学习研究提供了宝贵的经验和启示，促进了整个人工智能领域的进步。
