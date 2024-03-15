@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-# @file name  : train_googlenet.py
-# @brief      : googlenet traning
-"""
-
 import os
 import numpy as np
 import torch.nn as nn
@@ -13,7 +8,6 @@ import torchvision.transforms as transforms
 import torch.optim as optim
 from matplotlib import pyplot as plt
 from tools.my_dataset import NCFMDataSet
-from tools.model_GoogLeNetV1 import GoogLeNetV1
 import torchvision.models as models
 
 

@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-# @file name  : train_vgg.py
-# @brief      : vgg traning
-"""
-
 import os
 import numpy as np
 import torch.nn as nn

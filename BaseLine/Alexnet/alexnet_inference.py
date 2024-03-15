@@ -1,16 +1,7 @@
 # -*- coding: utf-8 -*-
-"""
-AlexNet的推理
-注意事项：
-1. 弃用LRN--因为VGG指出LRN并没有作用
-2. Overlapping Pooling用AdaptiveAvgPool2d代替
-3. 卷积核数量有所改变(因为需要使用pytorch官方提供的预训练模型)
-"""
-
 import json
 import os
 import time
-
 import matplotlib
 import torch
 import torchvision.transforms as transforms

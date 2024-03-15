@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-# @file name  : googlenet_inference.py
-# @brief      : inference demo
-"""
-
 import os
 import time
 import json

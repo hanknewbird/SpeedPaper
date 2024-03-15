@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-AlexNet的可视化
-功能：
-1. 卷积核可视化
-2. 特征图可视化
-"""
 import os
 import torch
 import torch.nn as nn

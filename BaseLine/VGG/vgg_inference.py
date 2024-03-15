@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-# @file name  : vgg_inference.py
-# @brief      : inference demo
-"""
-
 import json
 import os
 import time

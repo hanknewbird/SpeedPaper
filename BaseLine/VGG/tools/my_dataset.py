@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-# @file name  : my_dataset.py
-
-# @brief      : 数据集Dataset定义
-"""
-
 import os
 import random
 from PIL import Image

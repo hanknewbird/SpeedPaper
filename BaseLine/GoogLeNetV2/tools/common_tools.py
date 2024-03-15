@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-# @file name  : common_tools.py
-# @brief      : 通用函数
-"""
 import numpy as np
 import torch
 import torch.nn as nn

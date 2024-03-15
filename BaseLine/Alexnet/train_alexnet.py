@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-AlexNet的训练
-"""
-
 import os
 import numpy as np
 import torch.nn as nn

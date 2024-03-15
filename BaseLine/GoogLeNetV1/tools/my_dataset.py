@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-# @file name  : my_dataset.py
-# @brief      : NFCM数据集读取：https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring/data
-"""
 import os
 import random
 from PIL import Image
