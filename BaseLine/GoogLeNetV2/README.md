@@ -25,7 +25,7 @@
 | GoogLeNet  | 2014 | 6.6%         |
 | GoogLeNet-V2| 2015 | 4.9%         |
 
-GoogLeNet-V1采用多尺度卷积核，$1\times1$卷积操作， 辅助损失函数，实现更深的22层卷积神经网络，夺得ILSVRC-2014分类和检测冠军，定位亚军
+GoogLeNet-V1采用多尺度卷积核，![](https://latex.codecogs.com/svg.image?&space;1*1)卷积操作， 辅助损失函数，实现更深的22层卷积神经网络，夺得ILSVRC-2014分类和检测冠军，定位亚军
 
 本文在GoogLeNet-V1基础上加入BN层，同时借鉴VGG的小卷积核思想，将$5\times5$卷积替换为2个$3\times3$卷积。
 
