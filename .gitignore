@@ -1,0 +1,17 @@
+/BaseLine/.idea
+/Segmentation/.idea
+/.idea
+/.gitignore
+/BaseLine/Alexnet/paper/AlexNet翻译.docx
+/BaseLine/VGG/paper/VGG翻译.docx
+/BaseLine/GoogLeNetV1/paper/GoogLeNet翻译.docx
+/BaseLine/GoogLeNetV2/paper/GoogLeNetV2翻译.docx
+/BaseLine/GoogLeNetV2/paper/result.zip
+/BaseLine/ResNet/paper/result.zip
+/BaseLine/GoogLeNetV3/paper/result.zip
+/BaseLine/GoogLeNetV4/paper/result.zip
+/BaseLine/ResNeXt/paper/result.zip
+/BaseLine/DenseNet/paper/result.zip
+/BaseLine/SENet/paper/result.zip
+/BaseLine/Data/
+/BaseLine/ModelFile/
