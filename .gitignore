@@ -1,5 +1,3 @@
-/BaseLine/.idea
-/Segmentation/.idea
 /.idea
 /.gitignore
 /BaseLine/Alexnet/paper/AlexNet翻译.docx
@@ -30,3 +28,4 @@
 /Segmentation/图像分割-论文原文/
 /Segmentation/ModelFile/
 /Segmentation/Semantic_Segmentation-master/
+/Segmentation/11RDFNet/pytorch_segmentation_RGBD/
