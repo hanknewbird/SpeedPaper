@@ -26,14 +26,14 @@ def my_mkdir(my_dir):
 
 if __name__ == '__main__':
 
-    data_dir = os.path.join(BASE_DIR, "..", "..", "Data", "cifar-10", "cifar-10-batches-py")
-    train_o_dir = os.path.join(BASE_DIR, "..", "..", "Data", "cifar-10",  "cifar10_train")
-    test_o_dir = os.path.join(BASE_DIR, "..", "..", "Data", "cifar-10", "cifar10_test")
+    data_dir = os.path.join(BASE_DIR, "..", "Data", "cifar-10", "cifar-10-batches-py")
+    train_o_dir = os.path.join(BASE_DIR, "..", "Data", "cifar-10",  "cifar10_train")
+    test_o_dir = os.path.join(BASE_DIR, "..", "Data", "cifar-10", "cifar10_test")
 
     for j in range(1, 6):
         data_path = os.path.join(data_dir,  "data_batch_" + str(j))  # data_batch_12345
         train_data = unpickle(data_path)
-        print(data_path + " is loading...")
+        print(f"{data_path} is loading...")
 
         for i in range(0, 10000):
             img = np.reshape(train_data[b'file'][i], (3, 32, 32))
@@ -46,7 +46,7 @@ if __name__ == '__main__':
             img_name = label_num + '_' + str(i + (j - 1)*10000) + '.png'
             img_path = os.path.join(o_dir, img_name)
             imageio.imwrite(img_path, img)
-        print(data_path + " loaded.")
+        print(f"{data_path} loaded.")
 
     print("test_batch is loading...")
 
