@@ -13,7 +13,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")  # 运算�
 
 if __name__ == "__main__":
 
-    log_dir = os.path.join(BASE_DIR, "", "results")  # 输出路径
+    log_dir = os.path.join(BASE_DIR, "", "result")  # 输出路径
     # ----------------------------------- 卷积核可视化 -----------------------------------
     writer = SummaryWriter(log_dir=log_dir, filename_suffix="_kernel")                 # 创建一个Summary文件,并定义后缀
     path_state_dict = os.path.join(BASE_DIR, "ModelFile", "alexnet-owt-4df8aa71.pth")  # 预训练模型路径

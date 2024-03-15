@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     now_time = datetime.now()                                    # 时间
     time_str = datetime.strftime(now_time, '%m-%d_%H-%M')        # 时间格式化
-    log_dir = os.path.join(BASE_DIR, "..", "results", time_str)  # 结果保存路径
+    log_dir = os.path.join(BASE_DIR, "..", "result", time_str)  # 结果保存路径
 
     os.makedirs(log_dir, exist_ok=True)
 

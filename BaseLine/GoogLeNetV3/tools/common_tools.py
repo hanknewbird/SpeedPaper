@@ -36,8 +36,8 @@ class LabelSmoothingCrossEntropy(nn.Module):
         self.eps = eps
 
     def forward(self, x, target):
-        # CE(q, p) = - sigma(q_i * log(p_i))
-        log_probs = torch.nn.functional.log_softmax(x, dim=-1)  # 实现  log(p_i)
+        # CE(q, p) = - sigma(q_i * result(p_i))
+        log_probs = torch.nn.functional.log_softmax(x, dim=-1)  # 实现  result(p_i)
 
         # H(q, p)
         H_pq = -log_probs.gather(dim=-1, index=target.unsqueeze(1))  # 只需要q_i == 1的地方， 此时已经得到CE

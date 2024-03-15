@@ -152,7 +152,7 @@ if __name__ == "__main__":
 
     # 5/5 结果可视化
     plt.imshow(img_rgb)                          # 对图像进行处理，并显示其格式
-    plt.title("predict:{}".format(pred_str))     # 设置title
+    plt.title(f"predict:{pred_str}")             # 设置title
     top5_num = top5_idx.cpu().numpy().squeeze()  # 将top_idx从(1,5)拍平为(5,)
     text_str = [cls_n[t] for t in top5_num]      # 找到top_num对应的label name
 

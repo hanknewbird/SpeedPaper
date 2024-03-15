@@ -26,9 +26,9 @@ def my_mkdir(my_dir):
 
 if __name__ == '__main__':
 
-    data_dir = os.path.join(BASE_DIR, "..", "..", "Data", "cifar-10", "cifar-10-batches-py")
-    train_o_dir = os.path.join(BASE_DIR, "..", "..", "Data", "cifar-10",  "cifar10_train")
-    test_o_dir = os.path.join(BASE_DIR, "..", "..", "Data", "cifar-10", "cifar10_test")
+    data_dir = os.path.join(BASE_DIR, "..", "Data", "cifar-10", "cifar-10-batches-py")
+    train_o_dir = os.path.join(BASE_DIR, "..", "Data", "cifar-10",  "cifar10_train")
+    test_o_dir = os.path.join(BASE_DIR, "..", "Data", "cifar-10", "cifar10_test")
 
     for j in range(1, 6):
         data_path = os.path.join(data_dir,  "data_batch_" + str(j))  # data_batch_12345

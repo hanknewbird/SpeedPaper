@@ -39,7 +39,7 @@ def get_vgg16(path_state_dict, device, vis_model=False):
 
 now_time = datetime.now()  # 时间
 time_str = datetime.strftime(now_time, '%m-%d_%H-%M')  # 调整格式
-log_dir = os.path.join(BASE_DIR, "results", time_str)  # 日志保存文件夹
+log_dir = os.path.join(BASE_DIR, "result", time_str)  # 日志保存文件夹
 os.makedirs(log_dir, exist_ok=True)  # 新建日志
 
 if __name__ == "__main__":

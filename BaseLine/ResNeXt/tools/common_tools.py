@@ -168,5 +168,3 @@ def plot_line(train_x, train_y, valid_x, valid_y, mode, out_dir):
     plt.title('_'.join([mode]))
     plt.savefig(os.path.join(out_dir, mode + '.png'))
     plt.close()
-
-
