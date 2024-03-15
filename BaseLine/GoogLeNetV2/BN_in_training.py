@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-# @file name  : BN_in_training.py
-# @brief      : 训练时的BN层
-"""
-
 import os
 import numpy as np
 import torch.nn as nn

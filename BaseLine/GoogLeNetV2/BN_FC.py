@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-# @file name  : BN_visual.py
-# @brief      : BN层对数据分布对影响
-"""
-
 import torch
 import torch.utils.data as Data
 import matplotlib.pyplot as plt

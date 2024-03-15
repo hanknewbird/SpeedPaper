@@ -1,3 +1,34 @@
+# 简介
+
+欢迎来到SpeedPaper的BaseLine/GoogLeNetV2分支！
+
+本项目旨在通过提供原论文的中文翻译以及相应的PyTorch代码复现，简化对复杂研究论文的理解。
+
+- **标题**: Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift
+- [原文链接](https://arxiv.org/pdf/1502.03167.pdf)  [翻译链接](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/GoogLeNetV2/paper/GoogLeNetV2%E7%BF%BB%E8%AF%91.pdf)
+- **作者**: Sergey Ioffe, Christian Szegedy
+- **发表日期**: 2015
+
+# PyTorch代码复现
+
+我们使用PyTorch框架复现了GoogLeNetV2架构。包含了网络结构的定义、训练过程以及评估方法。我们尽力保持代码的简洁性和可读性，以便用户可以轻松地理解和修改。
+
+## 如何使用
+
+1. **安装依赖**: 确保您的环境中安装了PyTorch。可以通过[PyTorch官网](https://pytorch.org/get-started/locally/)获取安装指南。
+
+2. **下载数据**: 为了训练和评估模型，您需要下载[数据集xxxxx]()。放入与Alexnet同级目录中。
+
+3. **代码介绍**:
+
+   1.[BN_FC.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/GoogLeNetV2/BN_FC.py)展示了BN层对数据标准化和模型性能的积极影响。
+
+   2.[BN_in_training.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/GoogLeNetV2/BN_in_training.py)为模型训练文件。
+
+   3.[BN_with_init.py](https://github.com/hanknewbird/SpeedPaper/blob/main/BaseLine/GoogLeNetV2/BN_with_init.py)定义了BN-MLP和不同的权重初始化方法，并检测是否出现数值不稳定性（如NaN值）。
+
+---
+
 在深度学习的研究领域，一篇开创性的论文如同春日里的一阵清风，唤醒了沉睡的智慧之花。
 
 2015年春，Sergey Ioffe和Christian Szegedy在arXiv上发表了他们的杰作——《Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift》。这篇论文如同一位巧匠，巧妙地运用批归一化的技术，为深度神经网络的训练过程注入了新的活力。
