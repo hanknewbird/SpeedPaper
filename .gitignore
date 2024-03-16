@@ -13,7 +13,6 @@
 /BaseLine/SENet/paper/result.zip
 /BaseLine/Data/
 /BaseLine/ModelFile/
-/Segmentation/01FCN/
 /Segmentation/02Unet/
 /Segmentation/03SegNet/
 /Segmentation/04deeplap(stop)/
