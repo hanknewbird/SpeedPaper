@@ -5,7 +5,7 @@
 本项目旨在通过提供原论文的中文翻译以及相应的PyTorch代码复现，简化对复杂研究论文的理解。
 
 - **标题**: Fully Convolutional Networks for Semantic Segmentation
-- [原文链接](https://arxiv.org/pdf/1411.4038.pdf)  [翻译链接]()
+- [原文链接](https://arxiv.org/pdf/1411.4038.pdf)  [翻译链接](https://github.com/hanknewbird/SpeedPaper/blob/main/Segmentation/FCN/paper/FCN%E7%BF%BB%E8%AF%91.pdf)
 - **作者**: Jonathan Long，Evan Shelhamer，Trevor Darrell
 - **发表日期**: 2015
 
