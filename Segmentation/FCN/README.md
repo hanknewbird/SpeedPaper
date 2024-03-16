@@ -19,11 +19,11 @@
 2. **下载数据**: 为了训练和评估模型，您需要下载[数据集xxxxx]()。放入与Alexnet同级目录中。
 3. **代码介绍**:
 
-   1.
+   1.[cfg.py](https://github.com/hanknewbird/SpeedPaper/blob/main/Segmentation/FCN/cfg.py)为模型配置文件。
 
-   2.
+   2.[predict.py](https://github.com/hanknewbird/SpeedPaper/blob/main/Segmentation/FCN/predict.py)为模型预测文件。
 
-   3.
+   3.[train.py](https://github.com/hanknewbird/SpeedPaper/blob/main/Segmentation/FCN/train.py)为模型训练文件。
 
 ---
 
