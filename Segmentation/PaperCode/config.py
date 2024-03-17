@@ -11,7 +11,7 @@ MODEL_PATH = None
 SAVE_MODEL = True
 
 MAX_EPOCH = 100  # 跑多少轮
-BATCH_SIZE = 8   # 每次载入多少图片
+BATCH_SIZE = 2   # 每次载入多少图片
 DATALOADER_WORKERS = 8  # dataloader线程数
 
 TIME_STR = datetime.strftime(datetime.now(), '%m-%d-%H-%M')  # 时间格式化

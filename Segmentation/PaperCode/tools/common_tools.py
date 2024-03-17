@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import torchvision
 from PIL import Image
-from .net.FCN import FCN
+from .net.UNet import UNet
 import torch
 import os
 import logging
@@ -19,8 +19,7 @@ def get_net(device, vis_model=False, path_state_dict=None):
     :param path_state_dict:
     :return: 预训练模型
     """
-    model = FCN(5)  # 创建模型结构
-    # model = BaseLine()  # 创建模型结构
+    model = UNet(3, 5)  # 创建模型结构
 
     if path_state_dict:
         pretrained_state_dict = torch.load(path_state_dict, map_location=device)  # 读取预训练模型

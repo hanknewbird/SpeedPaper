@@ -20,7 +20,6 @@ def get_net(device, vis_model=False, path_state_dict=None):
     :return: 预训练模型
     """
     model = FCN(5)  # 创建模型结构
-    # model = BaseLine()  # 创建模型结构
 
     if path_state_dict:
         pretrained_state_dict = torch.load(path_state_dict, map_location=device)  # 读取预训练模型

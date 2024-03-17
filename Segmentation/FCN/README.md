@@ -15,7 +15,7 @@
 
 ## 如何使用
 
-1. **安装依赖**: 确保您的环境中安装了PyTorch。可以通过[PyTorch官网](https://pytorch.org/get-started/locally/)获取安装指南。
+1. **安装依赖**: 确保您的环境中安装了PyTorch2.1以及opencv。
 2. **下载数据**: 为了训练和评估模型，您需要下载[数据集xxxxx]()。放入与Alexnet同级目录中。
 3. **代码介绍**:
 

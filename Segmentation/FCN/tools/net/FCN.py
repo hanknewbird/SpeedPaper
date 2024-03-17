@@ -26,7 +26,7 @@ def bilinear_kernel(in_channels, out_channels, kernel_size):
 
 
 # 载入模型,并且不需要载入模型的预训练参数
-pretrained_net = models.vgg16_bn(pretrained=False)
+pretrained_net = models.vgg16_bn(weights=None)
 
 
 class FCN(nn.Module):
